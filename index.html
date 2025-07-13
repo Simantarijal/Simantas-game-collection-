@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simantas Games Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">🎮 Simantas Games Collection</h1>
+            <p class="subtitle">Premium Gaming Experience</p>
+        </header>
+
+        <!-- Main Interface -->
+        <div id="main-interface" class="interface active">
+            <div class="games-grid">
+                <!-- Snake Game -->
+                <div class="game-card" data-game="snake">
+                    <div class="game-icon">🐍</div>
+                    <h3>Snake Game</h3>
+                    <p>Classic snake adventure</p>
+                    <div class="game-modes">
+                        <button class="mode-btn" data-mode="single">Single Player</button>
+                    </div>
+                </div>
+
+                <!-- Subway Surfers -->
+                <div class="game-card" data-game="subway">
+                    <div class="game-icon">🚇</div>
+                    <h3>Subway Surfers</h3>
+                    <p>Endless runner adventure</p>
+                    <div class="game-modes">
+                        <button class="mode-btn" data-mode="single">Single Player</button>
+                    </div>
+                </div>
+
+                <!-- Chess -->
+                <div class="game-card" data-game="chess">
+                    <div class="game-icon">♟️</div>
+                    <h3>Chess</h3>
+                    <p>Strategic board game</p>
+                    <div class="game-modes">
+                        <button class="mode-btn" data-mode="single">Single Player</button>
+                        <button class="mode-btn" data-mode="multi">2 Players</button>
+                    </div>
+                </div>
+
+                <!-- Ludo -->
+                <div class="game-card" data-game="ludo">
+                    <div class="game-icon">🎲</div>
+                    <h3>Ludo</h3>
+                    <p>Family board game</p>
+                    <div class="game-modes">
+                        <button class="mode-btn" data-mode="single">Single Player</button>
+                        <button class="mode-btn" data-mode="multi">2 Players</button>
+                    </div>
+                </div>
+
+                <!-- Minecraft -->
+                <div class="game-card" data-game="minecraft">
+                    <div class="game-icon">⛏️</div>
+                    <h3>Minecraft</h3>
+                    <p>Block building adventure</p>
+                    <div class="game-modes">
+                        <button class="mode-btn" data-mode="single">Single Player</button>
+                        <button class="mode-btn" data-mode="multi">2 Players</button>
+                    </div>
+                </div>
+
+                <!-- Roblox -->
+                <div class="game-card" data-game="roblox">
+                    <div class="game-icon">🤖</div>
+                    <h3>Roblox Style</h3>
+                    <p>Creative multiplayer world</p>
+                    <div class="game-modes">
+                        <button class="mode-btn" data-mode="single">Single Player</button>
+                        <button class="mode-btn" data-mode="multi">2 Players</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Interfaces -->
+        <div id="snake-game" class="interface game-interface">
+            <div class="game-header">
+                <h2>🐍 Snake Game</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="game-content">
+                <canvas id="snake-canvas" width="600" height="400"></canvas>
+                <div class="game-info">
+                    <div class="score">Score: <span id="snake-score">0</span></div>
+                    <div class="controls-info">Use Arrow Keys or WASD to move</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="subway-game" class="interface game-interface">
+            <div class="game-header">
+                <h2>🚇 Subway Surfers</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="game-content">
+                <canvas id="subway-canvas" width="800" height="600"></canvas>
+                <div class="game-info">
+                    <div class="score">Score: <span id="subway-score">0</span></div>
+                    <div class="controls-info">Use Arrow Keys to move, Space to jump</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="chess-game" class="interface game-interface">
+            <div class="game-header">
+                <h2>♟️ Chess</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="game-content">
+                <div class="chess-board" id="chess-board"></div>
+                <div class="game-info">
+                    <div class="turn">Current Turn: <span id="current-turn">White</span></div>
+                    <div class="mode">Mode: <span id="chess-mode">Single Player</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ludo-game" class="interface game-interface">
+            <div class="game-header">
+                <h2>🎲 Ludo</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="game-content">
+                <canvas id="ludo-canvas" width="600" height="600"></canvas>
+                <div class="game-info">
+                    <div class="turn">Current Player: <span id="ludo-turn">1</span></div>
+                    <button id="roll-dice" class="dice-btn">🎲 Roll Dice</button>
+                    <div class="dice-result">Dice: <span id="dice-value">-</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="minecraft-game" class="interface game-interface">
+            <div class="game-header">
+                <h2>⛏️ Minecraft</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="game-content">
+                <canvas id="minecraft-canvas" width="800" height="600"></canvas>
+                <div class="game-info">
+                    <div class="inventory">
+                        <div class="inventory-item active" data-block="grass">🟩 Grass</div>
+                        <div class="inventory-item" data-block="stone">⬜ Stone</div>
+                        <div class="inventory-item" data-block="wood">🟫 Wood</div>
+                        <div class="inventory-item" data-block="water">🟦 Water</div>
+                    </div>
+                    <div class="controls-info">Click to place blocks, Right-click to remove</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="roblox-game" class="interface game-interface">
+            <div class="game-header">
+                <h2>🤖 Roblox Style</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="game-content">
+                <canvas id="roblox-canvas" width="800" height="600"></canvas>
+                <div class="game-info">
+                    <div class="player-info">Player: <span id="roblox-player">Guest</span></div>
+                    <div class="controls-info">WASD to move, Space to jump, Mouse to look around</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simantas AI Interface -->
+        <div id="simantas-ai" class="interface ai-interface">
+            <div class="ai-header">
+                <h2>🤖 Simantas AI</h2>
+                <div class="game-controls">
+                    <button class="btn-back" onclick="showInterface('main')">← Back</button>
+                    <button class="btn-default" onclick="resetToDefault()">🏠 Default</button>
+                </div>
+            </div>
+            <div class="ai-content">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="ai-message">
+                            <strong>Simantas AI:</strong> Hello! I'm here to help you with games and answer your questions. What would you like to know?
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Type your message here..." />
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed buttons -->
+        <div class="fixed-buttons">
+            <button class="ai-btn" onclick="showInterface('simantas-ai')">Simantas AI</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
